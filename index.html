@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Dani D — Architecture Student</title>
+  <meta name="description" content="Portfolio of David Dani D, B.Arch student at Mohamed Sathak A.J. Academy of Architecture — design, planning and visualization." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="loader" id="loader">
+    <svg class="loader__drawing" viewBox="0 0 400 260" fill="none" aria-hidden="true">
+      <path class="ld" d="M20 240 H380" />
+      <path class="ld" d="M60 240 V120 L200 40 L340 120 V240" />
+      <path class="ld" d="M60 120 H340" />
+      <path class="ld" d="M170 240 V170 H230 V240" />
+      <path class="ld" d="M90 150 H140 V200 H90 Z M115 150 V200 M90 175 H140" />
+      <path class="ld" d="M260 150 H310 V200 H260 Z M285 150 V200 M260 175 H310" />
+      <path class="ld" d="M200 40 V20 M185 95 A15 15 0 1 1 215 95 A15 15 0 1 1 185 95" />
+      <path class="ld ld--dim" d="M20 252 H380 M20 248 V256 M380 248 V256" />
+    </svg>
+    <div class="loader__meta">
+      <span>DRAWING SET — DAVID DANI D</span>
+      <span class="loader__count"><span id="loaderCount">0</span>%</span>
+    </div>
+  </div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__h"></div>
+    <div class="cursor__v"></div>
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+    <div class="cursor__coords">X <span id="cx">0</span> &nbsp; Y <span id="cy">0</span></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-cursor="Top">DD<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#about" data-magnetic>About</a>
+      <a href="#experience" data-magnetic>Experience</a>
+      <a href="#workshops" data-magnetic>Workshops</a>
+      <a href="#tools" data-magnetic>Tools</a>
+      <a href="#contact" data-magnetic>Contact</a>
+    </nav>
+    <div class="nav__sheet mono">SHEET <span id="sheetNo">A-00</span></div>
+    <button class="nav__burger" aria-label="Open menu" id="burger"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#workshops">Workshops</a>
+    <a href="#tools">Tools</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- scroll progress as a scale bar -->
+  <div class="scalebar" aria-hidden="true">
+    <div class="scalebar__fill" id="scaleFill"></div>
+    <div class="scalebar__ticks"></div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" data-sheet="A-00">
+      <canvas class="hero__grid" id="gridCanvas"></canvas>
+      <div class="hero__reveal" aria-hidden="true"><div class="hero__reveal-img"></div></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__main">
+        <div class="hero__left">
+          <span class="hero__chip mono"><i class="dot"></i>Open to internships · 2026</span>
+
+          <h1 class="hero__name" aria-label="David Dani D">
+            <span class="line"><span class="split">David</span></span>
+            <span class="line line--outline"><span class="split">Dani D<em>.</em></span></span>
+          </h1>
+
+          <p class="hero__lead">Architecture student designing spaces that are <em>creative</em>, <em>functional</em> &amp; <em>sustainable</em>.</p>
+
+          <div class="hero__cta">
+            <a href="#experience" class="btn btn--solid" data-magnetic><span>View my work</span><b>↗</b></a>
+            <a href="#contact" class="btn btn--ghost" data-magnetic><span>Get in touch</span></a>
+          </div>
+        </div>
+
+        <div class="hero__photo" data-cursor="Hello!">
+          <div class="hero__arch">
+            <img src="assets/photo.jpg" alt="David Dani D" id="profileImg" onerror="this.style.display='none';this.parentElement.classList.add('no-img')" />
+            <span class="hero__mono">DD</span>
+          </div>
+          <div class="hero__float hero__float--a">
+            <small class="mono">Currently</small>
+            <strong>B.Arch · 4th Year</strong>
+          </div>
+          <div class="hero__float hero__float--b">
+            <span class="hero__float-ico">✦</span>
+            <div><small class="mono">Studio</small><strong>Design · Plan · Visualize</strong></div>
+          </div>
+          <!-- <div class="hero__badge" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+              <text><textPath href="#circ">DESIGN • PLAN • VISUALIZE • BUILD • DESIGN • PLAN • VISUALIZE • BUILD • </textPath></text>
+            </svg>
+            <span class="hero__badge-arrow">↓</span>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="hero__strip">
+        <div><small class="mono">Based in</small><span>Marthandam, Kanyakumari</span></div>
+        <div><small class="mono">Studying at</small><span>Mohamed Sathak A.J. Academy</span></div>
+        <div><small class="mono">Focus</small><span>3D · BIM · Visualization</span></div>
+        <a href="#about" class="hero__scroll mono" data-magnetic>Scroll <i></i></a>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <!-- <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Architecture</span><i>✦</i><span>3D Modelling</span><i>✦</i><span>Manual Drafting</span><i>✦</i><span>AI in Architecture</span><i>✦</i><span>Sketching</span><i>✦</i><span>BIM</span><i>✦</i>
+        <span>Architecture</span><i>✦</i><span>3D Modelling</span><i>✦</i><span>Manual Drafting</span><i>✦</i><span>AI in Architecture</span><i>✦</i><span>Sketching</span><i>✦</i><span>BIM</span><i>✦</i>
+      </div>
+    </div> -->
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section" id="about" data-sheet="A-01">
+      <div class="section__head">
+        <span class="mono tag">A-01</span>
+        <h2 class="section__title">Career Objective</h2>
+      </div>
+
+      <div class="about__grid">
+        <p class="about__text" id="aboutText">I am an architecture student with a strong foundation in architectural design, planning, and visualization. Eager to gain practical experience, I seek to contribute to innovative projects while learning from experienced professionals. I am committed to continuous learning, attention to detail, and delivering creative, functional, and sustainable design solutions in a collaborative environment.</p>
+
+        <div class="about__plan">
+          <svg viewBox="0 0 320 320" fill="none" class="plan" aria-hidden="true">
+            <path class="pl" d="M20 20 H300 V300 H20 Z" />
+            <path class="pl" d="M20 140 H140 M180 140 H300" />
+            <path class="pl" d="M140 20 V100 M140 140 V300" />
+            <path class="pl" d="M220 140 V230 M220 260 V300" />
+            <path class="pl" d="M140 100 A40 40 0 0 1 180 140" />
+            <path class="pl" d="M220 230 A30 30 0 0 0 250 260" />
+            <path class="pl pl--fine" d="M40 40 H120 V120 H40 Z" />
+            <path class="pl pl--fine" d="M240 170 h40 v40 h-40 z" />
+            <path class="pl pl--fine" d="M60 200 H110 V260 H60 Z M60 215 H110" />
+            <path class="pl pl--dim" d="M20 312 H300 M20 306 V318 M300 306 V318" />
+            <text x="160" y="330" text-anchor="middle" class="plan__txt">GROUND FLOOR PLAN · 1:100</text>
+            <text x="80" y="88" text-anchor="middle" class="plan__lbl">LIVING</text>
+            <text x="240" y="88" text-anchor="middle" class="plan__lbl">STUDIO</text>
+            <text x="85" y="285" text-anchor="middle" class="plan__lbl">KITCHEN</text>
+            <text x="180" y="230" text-anchor="middle" class="plan__lbl">DINE</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="stat__num" data-count="4">0</span><span class="stat__lbl">Year · B.Arch</span></div>
+        <div class="stat"><span class="stat__num" data-count="2">0</span><span class="stat__lbl">Internships</span></div>
+        <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__lbl">Workshops</span></div>
+        <div class="stat"><span class="stat__num" data-count="8">0</span><span class="stat__lbl">Design Tools</span></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="exp section" id="experience" data-sheet="A-02">
+      <div class="section__head">
+        <span class="mono tag">A-02</span>
+        <h2 class="section__title">Experience &amp; Work</h2>
+      </div>
+
+      <div class="exp__split">
+      <div class="exp__col">
+      <h3 class="exp__sub mono">— Internships</h3>
+      <div class="timeline">
+        <div class="timeline__rail"><div class="timeline__progress" id="tlProgress"></div></div>
+
+        <article class="job" data-cursor="View">
+          <div class="job__dot"></div>
+          <div class="job__date mono">16 Jun 2025 — 02 Aug 2025</div>
+          <div class="job__card tilt">
+            <span class="job__idx">01</span>
+            <h3>ESS ESS Builders</h3>
+            <p class="job__role mono">Site Engineering Intern</p>
+            <ul>
+              <li>Assisted the site engineering team during construction activities.</li>
+              <li>Supported basic valuation work.</li>
+              <li>Prepared quantity estimates and project documentation.</li>
+            </ul>
+            <div class="job__tags"><span>Site Work</span><span>Valuation</span><span>Estimation</span></div>
+          </div>
+        </article>
+
+        <article class="job" data-cursor="View">
+          <div class="job__dot"></div>
+          <div class="job__date mono">01 Jun 2026 — 30 Jun 2026</div>
+          <div class="job__card tilt">
+            <span class="job__idx">02</span>
+            <h3>DESART Builder</h3>
+            <p class="job__role mono">Architecture Intern</p>
+            <ul>
+              <li>Prepared working drawings.</li>
+              <li>Developed 3D models for architectural projects.</li>
+              <li>Participated in site visits and construction documentation.</li>
+            </ul>
+            <div class="job__tags"><span>Working Drawings</span><span>3D Models</span><span>Site Visits</span></div>
+          </div>
+        </article>
+      </div>
+      </div>
+
+      <!-- Work -->
+      <div class="exp__col">
+        <h3 class="exp__sub mono">— Work</h3>
+        <div class="work">
+          <article class="work__item" data-cursor="Open">
+            <div class="work__media work__media--quad" data-gallery>
+              <img src="assets/w-1.png" alt="NID campus design — view 1" loading="lazy" />
+              <img src="assets/w2.png" alt="NID campus design — view 2" loading="lazy" />
+              <img src="assets/w3.png" alt="NID campus design — view 3" loading="lazy" />
+              <img src="assets/w4.png" alt="NID campus design — view 4" loading="lazy" />
+            </div>
+            <div class="work__body">
+              <span class="work__no mono">Architectural Campus Design</span>
+              <h4>NID – National Institute of Design</h4>
+              <p>An architectural campus design inspired by the concepts of spine, shift, interlock, lift, and cantilever. The design integrates dynamic building forms with the surrounding natural landscape, creating a functional and contemporary learning environment.</p>
+            </div>
+          </article>
+
+          <!-- <article class="work__item" data-cursor="View">
+            <div class="work__media work__media--duo">
+              <img src="https://picsum.photos/seed/arch-studio/600/600" alt="Studio project view" loading="lazy" />
+              <img src="https://picsum.photos/seed/arch-detail/600/600" alt="Studio project detail" loading="lazy" />
+            </div>
+            <div class="work__body">
+              <span class="work__no mono">W-02 · Institutional</span>
+              <h4>Community Learning Centre</h4>
+              <p>Design studio project exploring flexible learning spaces, local materials and a shaded public plaza.</p>
+            </div>
+          </article>
+
+          <article class="work__item" data-cursor="View">
+            <div class="work__media">
+              <img src="https://picsum.photos/seed/arch-urban/900/600" alt="Urban design study" loading="lazy" />
+            </div>
+            <div class="work__body">
+              <span class="work__no mono">W-03 · Urban Study</span>
+              <h4>Streetscape Revival</h4>
+              <p>Site analysis and redesign proposal for a pedestrian-friendly market street with green buffers.</p>
+            </div>
+          </article> -->
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKSHOPS (horizontal) ============ -->
+    <section class="ws" id="workshops" data-sheet="A-03">
+      <div class="ws__pin">
+        <div class="ws__intro">
+          <span class="mono tag">A-03</span>
+          <h2 class="section__title">Workshops</h2>
+          <p class="ws__hint mono">Scroll to explore →</p>
+        </div>
+        <div class="ws__track" id="wsTrack">
+
+          <article class="panel" data-cursor="Bamboo">
+            <div class="panel__art">
+              <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <g class="bamboo">
+                  <path d="M60 190 V20 M60 60 h-6 h12 M60 110 h-6 h12 M60 155 h-6 h12" />
+                  <path d="M100 190 V40 M100 80 h-6 h12 M100 130 h-6 h12" />
+                  <path d="M140 190 V10 M140 50 h-6 h12 M140 100 h-6 h12 M140 150 h-6 h12" />
+                  <path d="M30 120 L170 70 M30 170 L170 120" />
+                  <path d="M60 60 q-25 -15 -35 -40 M140 50 q25 -10 40 -30 M100 80 q20 -20 25 -45" class="leaf" />
+                </g>
+              </svg>
+            </div>
+            <div class="panel__body">
+              <span class="panel__no">01</span>
+              <h3>Bamboo Construction</h3>
+              <p>Hands-on joinery and structural systems with one of the most sustainable building materials — lashing, bracing and lightweight frames.</p>
+            </div>
+          </article>
+
+          <article class="panel" data-cursor="Clay">
+            <div class="panel__art">
+              <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <g class="clay">
+                  <path d="M70 40 H130 M76 40 C76 70 40 90 40 130 C40 170 70 185 100 185 C130 185 160 170 160 130 C160 90 124 70 124 40" />
+                  <path d="M48 110 H152 M42 140 H158 M52 165 H148" class="rings" />
+                  <ellipse cx="100" cy="40" rx="30" ry="6" />
+                </g>
+              </svg>
+            </div>
+            <div class="panel__body">
+              <span class="panel__no">02</span>
+              <h3>Clay Workshop</h3>
+              <p>Exploring earth as a material — forming, texture and the tactile craft of shaping volume by hand.</p>
+            </div>
+          </article>
+
+          <article class="panel" data-cursor="BIM">
+            <div class="panel__art">
+              <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
+                <g class="bim">
+                  <path d="M100 30 L170 70 L100 110 L30 70 Z" />
+                  <path d="M30 70 V140 L100 180 V110 M170 70 V140 L100 180" />
+                  <path d="M30 105 L100 145 L170 105 M65 50 V160 M135 50 V160" class="bim__grid" />
+                </g>
+              </svg>
+            </div>
+            <div class="panel__body">
+              <span class="panel__no">03</span>
+              <h3>BIM Workshop</h3>
+              <p>Building Information Modelling — intelligent, data-rich 3D models that connect design, documentation and construction.</p>
+            </div>
+          </article>
+
+          <div class="panel panel--end">
+            <p>Always<br/>learning<span>.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOOLS ============ -->
+    <section class="tools section" id="tools" data-sheet="A-04">
+      <div class="section__head">
+        <span class="mono tag">A-04</span>
+        <h2 class="section__title">Technical Skills</h2>
+      </div>
+
+      <div class="tools__head mono"><span>No.</span><span>Software</span><span>Used for</span></div>
+      <div class="tools__grid">
+        <div class="tool" style="--c:#d6202d"><span class="tool__no mono">01</span><div class="tool__icon"><b>A</b></div><span class="tool__name">AutoCAD</span><small class="tool__use mono">2D Drafting</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#1863c9"><span class="tool__no mono">02</span><div class="tool__icon"><b>R</b></div><span class="tool__name">Revit</span><small class="tool__use mono">BIM</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#2c7be5"><span class="tool__no mono">03</span><div class="tool__icon"><b>Su</b></div><span class="tool__name">SketchUp</span><small class="tool__use mono">3D Modelling</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#f07b1f"><span class="tool__no mono">04</span><div class="tool__icon"><b>E</b></div><span class="tool__name">Enscape</span><small class="tool__use mono">Real-time Render</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#2b2b2b"><span class="tool__no mono">05</span><div class="tool__icon"><b>D5</b></div><span class="tool__name">D5 Render</span><small class="tool__use mono">Visualization</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#e8582a"><span class="tool__no mono">06</span><div class="tool__icon tool__icon--ms"><i></i><i></i><i></i><i></i></div><span class="tool__name">MS Office</span><small class="tool__use mono">Documentation</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#1fa0f0"><span class="tool__no mono">07</span><div class="tool__icon"><b>Ps</b></div><span class="tool__name">Photoshop</span><small class="tool__use mono">Post-production</small><span class="tool__arrow">↗</span></div>
+        <div class="tool" style="--c:#7d2ae8"><span class="tool__no mono">08</span><div class="tool__icon"><b>C</b></div><span class="tool__name">Canva</span><small class="tool__use mono">Presentation</small><span class="tool__arrow">↗</span></div>
+      </div>
+
+      <div class="softskills">
+        <h3 class="mono">Core Skills</h3>
+        <div class="pills">
+          <span class="pill" data-magnetic>3D Modelling</span>
+          <span class="pill" data-magnetic>AI in Architecture</span>
+          <span class="pill" data-magnetic>Manual Drafting</span>
+          <span class="pill" data-magnetic>Teamwork</span>
+          <span class="pill" data-magnetic>Leadership</span>
+          <span class="pill" data-magnetic>Sketching</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="edu section" id="education" data-sheet="A-05">
+      <div class="section__head">
+        <span class="mono tag">A-05</span>
+        <h2 class="section__title">Education</h2>
+      </div>
+
+      <div class="edu__list">
+        <div class="titleblock">
+          <div class="tb__cell tb__cell--big">
+            <small class="mono">Degree</small>
+            <h3>Bachelor of Architecture (B.Arch)</h3>
+          </div>
+          <div class="tb__cell"><small class="mono">Institution</small><p>Mohamed Sathak A.J. Academy of Architecture</p></div>
+          <div class="tb__cell"><small class="mono">Status</small><p>4th Year — 7th Semester</p></div>
+        </div>
+
+        <div class="titleblock">
+          <div class="tb__cell tb__cell--big">
+            <small class="mono">Higher Secondary</small>
+            <h3>Class XII</h3>
+          </div>
+          <div class="tb__cell"><small class="mono">Institution</small><p>Good Shepherd Matriculation Higher Secondary School, Marthandam</p></div>
+          <div class="tb__cell"><small class="mono">Year</small><p>2022 — 2023</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERESTS ============ -->
+    <section class="interests section" id="interests" data-sheet="A-06">
+      <div class="section__head">
+        <span class="mono tag">A-06</span>
+        <h2 class="section__title">Beyond the Studio</h2>
+      </div>
+
+      <div class="int__grid">
+        <div class="int" data-cursor="📷">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="26" rx="4"/><path d="M17 14 l3-5 h8 l3 5"/><circle cx="24" cy="27" r="7" class="spin"/></svg>
+          <h4>Photography</h4><p>Framing light, form &amp; shadow.</p>
+        </div>
+        <div class="int" data-cursor="Fly">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="19" y="20" width="10" height="8" rx="2"/><path d="M19 22 L10 14 M29 22 L38 14 M19 26 L10 34 M29 26 L38 34"/><g class="prop"><path d="M5 14 h10 M33 14 h10 M5 34 h10 M33 34 h10"/></g></svg>
+          <h4>Aerial Photography</h4><p>Seeing cities like a site plan — by drone.</p>
+        </div>
+        <div class="int" data-cursor="Read">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 12 C18 8 10 8 6 10 V38 C10 36 18 36 24 40 C30 36 38 36 42 38 V10 C38 8 30 8 24 12 Z M24 12 V40"/></svg>
+          <h4>Story Writing</h4><p>Every building tells one too.</p>
+        </div>
+        <div class="int" data-cursor="Go">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M6 26 L42 12 L30 40 L24 28 Z M24 28 L42 12" class="plane"/></svg>
+          <h4>Traveling</h4><p>Collecting places, materials, ideas.</p>
+        </div>
+        <div class="int" data-cursor="Write">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M38 8 C26 10 14 22 12 38 L10 42 M12 38 C24 36 34 26 38 8 M18 30 L28 20" class="quill"/></svg>
+          <h4>Lyricist</h4><p>Rhythm in words, rhythm in façades.</p>
+        </div>
+        <div class="int" data-cursor="🥁">
+          <svg viewBox="0 0 48 48" fill="none"><ellipse cx="24" cy="22" rx="16" ry="6"/><path d="M8 22 V36 C8 39 16 42 24 42 C32 42 40 39 40 36 V22"/><g class="sticks"><path d="M14 6 L22 18 M34 6 L26 18"/></g></svg>
+          <h4>Drummer</h4><p>Keeping tempo, on stage and on site.</p>
+        </div>
+      </div>
+
+      <div class="langs">
+        <span class="mono">Speaks —</span>
+        <span class="lang" data-hello="வணக்கம்">Tamil</span>
+        <span class="lang" data-hello="Hello">English</span>
+        <span class="lang" data-hello="നമസ്കാരം">Malayalam</span>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact" data-sheet="A-07">
+      <span class="mono tag tag--light">A-07 · Contact</span>
+      <h2 class="contact__title">
+        <span class="line"><span class="split">Let's build</span></span>
+        <span class="line"><span class="split">something<em>.</em></span></span>
+      </h2>
+
+      <a href="mailto:daviddanid2005@gmail.com" class="contact__btn" data-magnetic data-cursor="Write">
+        <span>Say Hello</span>
+      </a>
+
+      <div class="contact__info">
+        <a href="mailto:daviddanid2005@gmail.com" class="ci" data-cursor="Email"><small class="mono">Email</small><span>daviddanid2005@gmail.com</span></a>
+        <a href="tel:+918248840551" class="ci" data-cursor="Call"><small class="mono">Phone</small><span>+91 82488 40551</span></a>
+        <a href="https://instagram.com/daviddani.d" target="_blank" rel="noopener" class="ci" data-cursor="Follow"><small class="mono">Instagram</small><span>@daviddani.d</span></a>
+        <div class="ci"><small class="mono">Based in</small><span>Marthandam, Kanyakumari, Tamil Nadu</span></div>
+      </div>
+
+      <footer class="footer mono">
+        <span>© 2026 David Dani D</span>
+        <span>Drawn with care · Sheet A-07 of A-07</span>
+        <a href="#top" data-magnetic>Back to top ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Image gallery lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery" hidden>
+    <button class="lightbox__close" type="button" aria-label="Close gallery">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">&#8592;</button>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" src="" alt="" />
+      <figcaption class="lightbox__count mono"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">&#8594;</button>
+    <div class="lightbox__thumbs"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
